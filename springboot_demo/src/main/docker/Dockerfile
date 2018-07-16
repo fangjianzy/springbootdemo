@@ -2,7 +2,11 @@ FROM frolvlad/alpine-oraclejdk8:slim
 VOLUME /tmp
 ADD springboot_demo-0.0.1-SNAPSHOT.jar springboot_demo.jar
 
-RUN sh -c 'touch /springboot_demo.jar && /bin/cp /usr/share/zoneinfo/Asia/Shanghai /etc/localtime  && echo 'Asia/Shanghai' >/etc/timezone   '
+ENV TZ=Asia/Shanghai
+
+
+
+RUN sh -c 'touch /springboot_demo.jar && ln -snf /usr/share/zoneinfo/$TZ /etc/localtime && echo $TZ > /etc/timezone'
 
     
 ENV JAVA_OPTS=""
