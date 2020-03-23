@@ -1,4 +1,4 @@
-package test.com.fangjian.service;
+package com.fangjian.service;
 
 import java.util.concurrent.CompletableFuture;
 
