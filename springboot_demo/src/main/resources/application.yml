@@ -1,0 +1,34 @@
+spring:
+  mail:
+    host: smtp.163.com # 发件服务器
+    username: yyjcf1986@163.com # 账号
+    password: fangjian1177 # 密码（163需要授权第三方登录密码，请查看设置-客户端授权码密码开通）
+    port: 465
+    protocol: smtp
+    default-encoding: utf-8
+    # 下面这些配置大家不用深究，主要用于配置ssl
+    properties:
+      mail:
+        imap:
+          ssl:
+            socketFactory:
+              fallback: false
+        smtp:
+          auth: true
+          ssl:
+            enable: true
+            socketFactory:
+              class: com.fintech.modules.base.util.mail.MailSSLSocketFactory
+          starttls:
+            enable: true
+            required: true
+      test-connection: false
+# 邮件配置
+fangjian:
+  email:
+    subject: "致景科技-全布产品技术-方坚"
+    from: "yyjcf1986@163.com"
+    to: "fangjian@baibu.la"
+    # 抄送人：类型定义为数组，可以配置多个 fengbaoqiuping@163.com
+    cc:
+      - "yyjcf1986@163.com"
